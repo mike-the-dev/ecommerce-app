@@ -71,7 +71,9 @@ const Variant: React.FC<VariantProps> = (props): React.ReactElement => {
 
    return (
       <button key={index} onClick={onSelectVariant(index)}>
-        <div className="w-[50px] h-[50px] rounded-[50px]" style={{ backgroundColor: variant.color }}></div>
+       <div className="flex justify-center items-center w-[64px] h-[64px] rounded-[64px]" style={{ border: 3, borderColor: "#FFF", borderStyle: "solid", backgroundColor: "#FFF" }}>
+         <div className="w-[50px] h-[50px] rounded-[50px]" style={{ backgroundColor: variant.color }}></div>
+       </div>
       </button>
    );
   });
