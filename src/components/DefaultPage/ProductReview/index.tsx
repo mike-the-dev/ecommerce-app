@@ -7,7 +7,7 @@ const ProductReview: React.FC = (): React.ReactElement => {
   return (
     <div id="ProuductReview">
       <div className="customer-feedback mb-[50px]">
-        <h3 className="text-[#344054] text-[24px] font-bold mb-[21px]">Product Description</h3>
+        <h3 className="text-[#344054] text-[24px] font-bold mb-[21px]">Customer Feedback</h3>
         <div className="flex flex-row">
           <div className="flex flex-col w-[298px] h-[230px] bg-[#F9FAFB] justify-center items-center rounded-[8px]">
             <div className="text-[60px] text-[#164C96] font-bold">4.8</div>
