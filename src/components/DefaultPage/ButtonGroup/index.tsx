@@ -8,7 +8,7 @@ const ButtonGroup: React.FC = (): React.ReactElement => {
           <div className="flex flex-1 items-center justify-center">5</div>
           <button className="w-[60px]">+</button>
         </div>
-        <button className="w-[309px] h-[59px] bg-[#3A4980] text-[16px] text-[#FFF] font-semibold rounded-[30px] ml-[20px]">Add To Cart</button>
+        <button className="w-[309px] h-[59px] bg-[#3A4980] text-[16px] text-[#FFF] font-semibold rounded-[30px] ml-[20px]">Buy It Now</button>
       </div>
     </div>
   );
