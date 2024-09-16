@@ -13,39 +13,36 @@ import ProductDetail from "@/components/DefaultPage/ProductDetail";
 export default function Home() {
   return (
     <div className="w-[1300px] m-auto pt-[40px]">
-      <div style={{ boxShadow: "1px 1px 10px 1px rgba(0,0,0,0.15)", borderRadius: 20, padding: 20 }}>
-        {/* Row */}
-        <div className="flex flex-row">
-          {/* Column */}
-          <div className="w-full">
-            {/* Carousel */}
-            <Carousel />
-          </div>
-          {/* Column */}
-          <div className="w-full">
-            <BreadCrumb />
-            <Header />
-            <Divider y={30} />
-            <PriceReview />
-            <Divider y={30} />
-            <Variant />
-            <Divider y={30} />
-            <Size />
-            <Divider y={30} />
-            <ButtonGroup />
-            <DeliveryDetails />
-          </div>
+      {/* Row */}
+      <div className="flex flex-row">
+        {/* Column */}
+        <div className="w-full">
+          {/* Carousel */}
+          <Carousel />
         </div>
-        <Spacer y={70} />
-        {/* Row */}
-        <div className="flex flex-row">
-          {/* Column */}
-          <div className="w-full">
-            <ProductDetail />
-          </div>
+        {/* Column */}
+        <div className="w-full">
+          <BreadCrumb step="select treatment" />
+          <Header />
+          <Divider y={30} />
+          <PriceReview />
+          <Divider y={30} />
+          <Variant />
+          <Divider y={30} />
+          <Size />
+          <Divider y={30} />
+          <ButtonGroup />
+          <DeliveryDetails />
         </div>
       </div>
       <Spacer y={70} />
+      {/* Row */}
+      <div className="flex flex-row">
+        {/* Column */}
+        <div className="w-full">
+          <ProductDetail />
+        </div>
+      </div>
     </div>
   );
 }
