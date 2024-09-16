@@ -123,7 +123,7 @@ export default function Billing() {
           />
           <Spacer y={56} />
           <button className="text-[#FFF] bg-[#1472B2] w-[295px] h-[54px] rounded-[30px]">
-            To Checkout ->
+            To Checkout
           </button>
         </div>
       </div>
