@@ -20,6 +20,16 @@ body {
 
 }
 
+.affirm-as-low-as {
+  height: 25px;
+}
+
+.affirm-as-low-as a {
+  color: #1472B2;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

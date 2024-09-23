@@ -1,9 +1,10 @@
 "use client";
 
 import ArrowRight from "@/components/Icons/ArrowRight";
+import { Fragment } from "react";
 
 interface BreadCrumbProps {
-  step: "select treatment" | "billing" | "payment" | "confirmation";
+  step: "product" | "billing" | "payment" | "confirmation";
 };
 
 interface Crumb {
@@ -18,8 +19,8 @@ const BreadCrumb: React.FC<BreadCrumbProps> = (props): React.ReactElement => {
     {
       index: 0,
       id: "01",
-      title: "Select Treatment",
-      step: "select treatment"
+      title: "Product",
+      step: "product"
     },
     {
       index: 1,
@@ -54,7 +55,7 @@ const BreadCrumb: React.FC<BreadCrumbProps> = (props): React.ReactElement => {
     );
 
     return (
-      <>
+      <Fragment key={crumb.index}>
         <div className="flex">
           <ArrowRight color={"#A3A9C2"} />
         </div>
@@ -70,7 +71,7 @@ const BreadCrumb: React.FC<BreadCrumbProps> = (props): React.ReactElement => {
             <ArrowRight color={"#A3A9C2"} />
           </div>
         ) : null}
-      </>
+      </Fragment>
     );
   });
 

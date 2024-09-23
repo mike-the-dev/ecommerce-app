@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         {/* Column */}
         <div className="w-full">
-          <BreadCrumb step="select treatment" />
+          <BreadCrumb step="product" />
           <Header />
           <Divider y={30} />
           <PriceReview />
