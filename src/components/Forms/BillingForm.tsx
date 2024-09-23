@@ -2,8 +2,8 @@
 import React from "react";
 import { formOptions, useForm } from "@tanstack/react-form";
 import Spacer from "@/components/Spacer";
-import Select from "@/components/Inputs/Dropdown";
 import { Sanitize, Validate } from "@/utils/validate";
+import Select from "@/components/Inputs/Dropdown";
 // import { userTodoIds } from "@/services/query";
 
 export interface BillingInformation {
@@ -87,25 +87,31 @@ const BillingForm: React.FC = (): React.ReactElement => {
             validators={{
               onChange: ({ value }) => Validate().email(value),
             }}
-            children={(field) => (
-              <>
-                <label className="block text-[16px] text-[#444444] mb-[11px]">Email</label>
-                <div className="relative flex w-[100%] h-[50px] bg-[#F6F6F6] items-center">
-                  <input
-                    className="w-[100%] h-[100%] bg-[#F6F6F6] pl-[20px] pr-[20px] text-[15px]"
-                    name={field.name}
-                    value={field.state.value}
-                    onBlur={field.handleBlur}
-                    onChange={(e) => field.handleChange(Sanitize().email(e.target.value))}
-                    ref={focusRef}
-                  />
-                </div>
-                {field.state.meta.errors ? (
-                  <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
-                ) : null}
-              </>
-            )}
-          />
+
+          >
+            {
+              (field) => {
+                return (
+                  <>
+                    <label className="block text-[16px] text-[#444444] mb-[11px]">Email</label>
+                    <div className="relative flex w-[100%] h-[50px] bg-[#F6F6F6] items-center">
+                      <input
+                        className="w-[100%] h-[100%] bg-[#F6F6F6] pl-[20px] pr-[20px] text-[15px]"
+                        name={field.name}
+                        value={field.state.value}
+                        onBlur={field.handleBlur}
+                        onChange={(e) => field.handleChange(Sanitize().email(e.target.value))}
+                        ref={focusRef}
+                      />
+                    </div>
+                    {field.state.meta.errors ? (
+                      <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
+                    ) : null}
+                  </>
+                )
+              }
+            }
+          </form.Field>
           <Spacer y={30} />
           <div className="flex flex-row">
             <div className="w-full">
@@ -114,22 +120,25 @@ const BillingForm: React.FC = (): React.ReactElement => {
                 validators={{
                   onChange: ({ value }) => Validate().firstName(value),
                 }}
-                children={(field) => (
-                  <>
-                    <label className="block text-[16px] text-[#444444] mb-[11px]">First Name</label>
-                    <input
-                      className="w-[100%] h-[50px] bg-[#F6F6F6] px-[20px] text-[15px]"
-                      name={field.name}
-                      value={field.state.value}
-                      onBlur={field.handleBlur}
-                      onChange={(e) => field.handleChange(e.target.value)}
-                    />
-                    {field.state.meta.errors ? (
-                      <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
-                    ) : null}
-                  </>
-                )}
-              />
+              >
+                {
+                  (field) => (
+                    <>
+                      <label className="block text-[16px] text-[#444444] mb-[11px]">First Name</label>
+                      <input
+                        className="w-[100%] h-[50px] bg-[#F6F6F6] px-[20px] text-[15px]"
+                        name={field.name}
+                        value={field.state.value}
+                        onBlur={field.handleBlur}
+                        onChange={(e) => field.handleChange(e.target.value)}
+                      />
+                      {field.state.meta.errors ? (
+                        <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
+                      ) : null}
+                    </>
+                  )
+                }
+              </form.Field>
             </div>
             <div className="px-[10px]"></div>
             <div className="w-full">
@@ -138,22 +147,25 @@ const BillingForm: React.FC = (): React.ReactElement => {
                 validators={{
                   onChange: ({ value }) => Validate().lastName(value),
                 }}
-                children={(field) => (
-                  <>
-                    <label className="block text-[16px] text-[#444444] mb-[11px]">Last Name</label>
-                    <input
-                      className="w-[100%] h-[50px] bg-[#F6F6F6] px-[20px] text-[15px]"
-                      name={field.name}
-                      value={field.state.value}
-                      onBlur={field.handleBlur}
-                      onChange={(e) => field.handleChange(e.target.value)}
-                    />
-                    {field.state.meta.errors ? (
-                      <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
-                    ) : null}
-                  </>
-                )}
-              />
+              >
+                {
+                  (field) => (
+                    <>
+                      <label className="block text-[16px] text-[#444444] mb-[11px]">Last Name</label>
+                      <input
+                        className="w-[100%] h-[50px] bg-[#F6F6F6] px-[20px] text-[15px]"
+                        name={field.name}
+                        value={field.state.value}
+                        onBlur={field.handleBlur}
+                        onChange={(e) => field.handleChange(e.target.value)}
+                      />
+                      {field.state.meta.errors ? (
+                        <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
+                      ) : null}
+                    </>
+                  )
+                }
+              </form.Field>
             </div>
           </div>
           <Spacer y={30} />
@@ -162,92 +174,104 @@ const BillingForm: React.FC = (): React.ReactElement => {
             validators={{
               onChange: ({ value }) => Validate().phoneNumber(value),
             }}
-            children={(field) => (
-              <>
-                <label className="block text-[16px] text-[#444444] mb-[11px]">Phone</label>
-                <div className="relative flex w-[100%] h-[50px] bg-[#F6F6F6] items-center">
-                  <div className="absolute flex justify-center items-center w-[50px] h-[100%] text-[15px]">+1</div>
-                  <input
-                    className="w-[100%] h-[100%] bg-[#F6F6F6] pl-[50px] pr-[20px] text-[15px]"
-                    name={field.name}
-                    value={field.state.value}
-                    onBlur={field.handleBlur}
-                    onChange={(e) => field.handleChange(Sanitize().phoneNumber(e.target.value))}
-                  />
-                </div>
-                {field.state.meta.errors ? (
-                  <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
-                ) : null}
-              </>
-            )}
-          />
+          >
+            {
+              (field) => (
+                <>
+                  <label className="block text-[16px] text-[#444444] mb-[11px]">Phone</label>
+                  <div className="relative flex w-[100%] h-[50px] bg-[#F6F6F6] items-center">
+                    <div className="absolute flex justify-center items-center w-[50px] h-[100%] text-[15px]">+1</div>
+                    <input
+                      className="w-[100%] h-[100%] bg-[#F6F6F6] pl-[50px] pr-[20px] text-[15px]"
+                      name={field.name}
+                      value={field.state.value}
+                      onBlur={field.handleBlur}
+                      onChange={(e) => field.handleChange(Sanitize().phoneNumber(e.target.value))}
+                    />
+                  </div>
+                  {field.state.meta.errors ? (
+                    <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
+                  ) : null}
+                </>
+              )
+            }
+          </form.Field>
           <Spacer y={30} />
           <form.Field
             name="address"
             validators={{
               onChange: ({ value }) => Validate().address(value),
             }}
-            children={(field) => (
-              <>
-                <label className="block text-[16px] text-[#444444] mb-[11px]">Address</label>
-                <input
-                  className="w-[100%] h-[50px] bg-[#F6F6F6] px-[20px] text-[15px]"
-                  name={field.name}
-                  value={field.state.value}
-                  onBlur={field.handleBlur }
-                  onChange={(e) => field.handleChange(e.target.value)}
-                  placeholder="Street address, apartment, suite, floor, etc"
-                />
-                {field.state.meta.errors ? (
-                  <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
-                ) : null}
-              </>
-            )}
-          />
+          >
+            {
+              (field) => (
+                <>
+                  <label className="block text-[16px] text-[#444444] mb-[11px]">Address</label>
+                  <input
+                    className="w-[100%] h-[50px] bg-[#F6F6F6] px-[20px] text-[15px]"
+                    name={field.name}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    placeholder="Street address, apartment, suite, floor, etc"
+                  />
+                  {field.state.meta.errors ? (
+                    <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
+                  ) : null}
+                </>
+              )
+            }
+          </form.Field>
           <Spacer y={30} />
           <form.Field
             name="city"
             validators={{
               onChange: ({ value }) => Validate().city(value),
             }}
-            children={(field) => (
-              <>
-                <input
-                  className="w-[100%] h-[50px] bg-[#F6F6F6] px-[20px] text-[15px]"
-                  name={field.name}
-                  value={field.state.value}
-                  onBlur={field.handleBlur}
-                  onChange={(e) => field.handleChange(e.target.value)}
-                  placeholder="City"
-                />
-                {field.state.meta.errors ? (
-                  <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
-                ) : null}
-              </>
-            )}
-          />
+          >
+            {
+              (field) => (
+                <>
+                  <input
+                    className="w-[100%] h-[50px] bg-[#F6F6F6] px-[20px] text-[15px]"
+                    name={field.name}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    placeholder="City"
+                  />
+                  {field.state.meta.errors ? (
+                    <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
+                  ) : null}
+                </>
+              )
+            }
+          </form.Field>
           <Spacer y={30} />
           <form.Field
             name="zipcode"
             validators={{
               onChange: ({ value }) => Validate().zipcode(value),
             }}
-            children={(field) => (
-              <>
-                <input
-                  className="w-[100%] h-[50px] bg-[#F6F6F6] px-[20px] text-[15px]"
-                  name={field.name}
-                  value={field.state.value}
-                  onBlur={field.handleBlur}
-                  onChange={(e) => field.handleChange(Sanitize().digit(e.target.value))}
-                  placeholder="Zip"
-                />
-                {field.state.meta.errors ? (
-                  <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
-                ) : null}
-              </>
-            )}
-          />
+          >
+            {
+              (field) => (
+                <>
+                  <input
+                    className="w-[100%] h-[50px] bg-[#F6F6F6] px-[20px] text-[15px]"
+                    name={field.name}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(Sanitize().digit(e.target.value))}
+                    placeholder="Zip"
+                  />
+                  {field.state.meta.errors ? (
+                    <em role="alert" className="">{field.state.meta.errors.join(', ')}</em>
+                  ) : null}
+                </>
+              )
+            }
+          </form.Field>
           <Spacer y={30} />
           <form.Field
             name="state"
@@ -255,19 +279,21 @@ const BillingForm: React.FC = (): React.ReactElement => {
             validators={{
               onChange: ({ value }) => Validate().state(value),
             }}
-            children={(stateField) => (
-              <div>
-                <Select 
-                  field={stateField} 
-                  items={stateNames} 
-                />
-                {stateField.state.meta.errors ? (
-                  <em role="alert" className="">{stateField.state.meta.errors.join(', ')}</em>
-                ) : null}
-              </div>
-            )}
-
-          />
+          >
+            {
+              (stateField) => (
+                <div>
+                  <Select
+                    field={stateField}
+                    items={stateNames}
+                  />
+                  {stateField.state.meta.errors ? (
+                    <em role="alert" className="">{stateField.state.meta.errors.join(', ')}</em>
+                  ) : null}
+                </div>
+              )
+            }
+          </form.Field>
         </div>
         <Spacer y={56} />
         <button className="text-[#FFF] bg-[#1472B2] w-[295px] h-[54px] rounded-[30px]">
