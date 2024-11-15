@@ -1,10 +1,12 @@
 "use client";
 
+import { loginAllTabs } from "@/components/Providers/something";
 import {
   isServer,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 const makeQueryClient= () => {
   return new QueryClient({
@@ -39,9 +41,15 @@ export default function Providers({ children }: any) {
   //       have a suspense boundary between this and the code that may
   //       suspend because React will throw away the client on the initial
   //       render if it suspends and there is no boundary
-  const queryClient = getQueryClient()
+  const queryClient = getQueryClient();
+
+  useEffect(() => {
+    loginAllTabs();
+  }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      {children}
+    </QueryClientProvider>
   );
 };

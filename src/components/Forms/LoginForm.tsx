@@ -6,7 +6,8 @@ import { Input, Button, Link } from "@nextui-org/react";
 import { EyeSlashFilledIcon } from "../Icons/EyeSlashFilledIcon";
 import { EyeFilledIcon } from "../Icons/EyeFilledIcon";
 import { useCreataeUser } from "@/services/mutations";
-// import { userTodoIds } from "@/services/query";
+import { useRouter } from "next/navigation";
+// import { login } from "@/components/Providers/something";
 
 export interface LoginInformation {
   emailAddress: string;
@@ -16,6 +17,7 @@ export interface LoginInformation {
 
 const LoginForm: React.FC = (): React.ReactElement => {
   const createUserMutation = useCreataeUser();
+  const router = useRouter();
   const focusRef = React.useRef<HTMLInputElement>(null);
   const [isVisible, setIsVisible] = React.useState(false);
   const [formSubmissionErrorMessage, setformSubmissionErrorMessage] = React.useState<string>("");
@@ -31,23 +33,26 @@ const LoginForm: React.FC = (): React.ReactElement => {
   const form = useForm({
     ...formOpts,
     onSubmit: async ({ value }) => {
-      // createUserMutation.mutate(
-      //   {
-      //     emailAddress: value.emailAddress,
-      //     password: value.password
-      //   }, 
-      //   {
-      //     onSuccess: (data,) => {
-      //       console.log("Mutaion successful. Data is: ", data.data);
-      //       setformSubmissionErrorMessage("");
-      //     },
-      //     onError: (error) => {
-      //       console.log("errrrrror", error);
-      //       // @ts-ignore
-      //       setformSubmissionErrorMessage(error.response.data.message);
-      //     }
-      //   }
-      // );
+      createUserMutation.mutate(
+        {
+          emailAddress: value.emailAddress,
+          password: value.password
+        }, 
+        {
+          onSuccess: (data) => {
+            const accessToken = data.data.authorization.tokens.access;
+            const refreshToken = data.data.authorization.tokens.refresh;
+            setformSubmissionErrorMessage("");
+            // login(accessToken, refreshToken, router);
+            router.push("/desk");
+          },
+          onError: (error) => {
+            console.log("Error", error);
+            // @ts-ignore
+            setformSubmissionErrorMessage(error.response.data.message);
+          }
+        }
+      );
     }
   });
   const emailAddress = form.useStore((state) => state.values.emailAddress);
