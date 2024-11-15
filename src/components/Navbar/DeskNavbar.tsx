@@ -15,7 +15,7 @@ const DeskNavbar: React.FC = (): React.ReactElement => {
   const onLogOut = async () => {
     try {
       // Set delete cookie http only cookie.
-      const axiosResponse = await axios.get("ecommerceapi.joymd.com/api/deleteCookie", {
+      const axiosResponse = await axios.get("https://ecommerceapi.joymd.com/api/deleteCookie", {
         withCredentials: true,
         headers: {
           "Content-type": "application/json"

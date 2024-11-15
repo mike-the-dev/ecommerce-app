@@ -7,7 +7,7 @@ export default function Desk() {
   // const onPressHandler = async () => {
   //   try {
   //     // Retrive the token from state or session storage.
-  //     const axiosResponse = await axios.get("ecommerceapi.joymd.com/api/user/getAllProducts", {
+  //     const axiosResponse = await axios.get("https://ecommerceapi.joymd.com/api/user/getAllProducts", {
   //       withCredentials: true,
   //       headers: {
   //         "Content-type": "application/json"
