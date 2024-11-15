@@ -10,7 +10,7 @@ export default async (request: NextRequest) => {
     // console.log("Rediecting too: ", absoluteURL.toString());
     // return NextResponse.redirect(absoluteURL.toString());
     try {
-      // const res = await fetch("http://ecommerce-api-env.eba-dpmqvdqd.us-west-2.elasticbeanstalk.com/api/authenticated", {
+      // const res = await fetch("ecommerceapi.joymd.com/api/authenticated", {
       //   method: 'GET',
       //   credentials: "include",
       //   headers: {
@@ -38,7 +38,7 @@ export default async (request: NextRequest) => {
     // console.log("Rediecting too: ", absoluteURL.toString());
     // return NextResponse.redirect(absoluteURL.toString());
     try {
-      // const res = await fetch("http://ecommerce-api-env.eba-dpmqvdqd.us-west-2.elasticbeanstalk.com/api/authenticated", {
+      // const res = await fetch("ecommerceapi.joymd.com/api/authenticated", {
       //   method: 'GET',
       //   credentials: "include",
       //   headers: {
@@ -68,7 +68,7 @@ export default async (request: NextRequest) => {
   //   // console.log("Rediecting too: ", absoluteURL.toString());
   //   // return NextResponse.redirect(absoluteURL.toString());
   //   try {
-  //     const res = await fetch("http://ecommerce-api-env.eba-dpmqvdqd.us-west-2.elasticbeanstalk.com/api/authenticated", {
+  //     const res = await fetch("ecommerceapi.joymd.com/api/authenticated", {
   //       method: 'GET',
   //       credentials: "include",
   //       headers: {

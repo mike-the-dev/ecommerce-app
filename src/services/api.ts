@@ -1,7 +1,7 @@
 import { Login } from "@/types/login";
 import axios from "axios";
 
-const BASE_URL = "http://ecommerce-api-env.eba-dpmqvdqd.us-west-2.elasticbeanstalk.com/api";
+const BASE_URL = "ecommerceapi.joymd.com/api";
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
 // export const getTodosIds = async () => {
