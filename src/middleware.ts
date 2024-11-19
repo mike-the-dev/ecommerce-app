@@ -10,7 +10,7 @@ export default async (request: NextRequest) => {
     // console.log("Rediecting too: ", absoluteURL.toString());
     // return NextResponse.redirect(absoluteURL.toString());
     try {
-      // const res = await fetch("https://ecommerceapi.joymd.com/api/authenticated", {
+      // const res = await fetch("http://localhost:3001/api/authenticated", {
       //   method: 'GET',
       //   credentials: "include",
       //   headers: {
@@ -38,7 +38,7 @@ export default async (request: NextRequest) => {
     // console.log("Rediecting too: ", absoluteURL.toString());
     // return NextResponse.redirect(absoluteURL.toString());
     try {
-      // const res = await fetch("https://ecommerceapi.joymd.com/api/authenticated", {
+      // const res = await fetch("http://localhost:3001/api/authenticated", {
       //   method: 'GET',
       //   credentials: "include",
       //   headers: {
@@ -68,7 +68,7 @@ export default async (request: NextRequest) => {
   //   // console.log("Rediecting too: ", absoluteURL.toString());
   //   // return NextResponse.redirect(absoluteURL.toString());
   //   try {
-  //     const res = await fetch("https://ecommerceapi.joymd.com/api/authenticated", {
+  //     const res = await fetch("http://localhost:3001/api/authenticated", {
   //       method: 'GET',
   //       credentials: "include",
   //       headers: {

@@ -1,6 +1,7 @@
 import { Login } from "@/types/login";
 import axios from "axios";
 
+// const BASE_URL = "http://localhost:3001/api";
 const BASE_URL = "https://ecommerceapi.joymd.com/api";
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
